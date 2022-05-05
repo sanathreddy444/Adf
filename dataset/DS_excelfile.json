@@ -9,6 +9,7 @@
 		"annotations": [],
 		"type": "Excel",
 		"typeProperties": {
+			"sheetName": "dummy_excel_file",
 			"location": {
 				"type": "AzureBlobFSLocation"
 			}
