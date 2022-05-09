@@ -5,10 +5,16 @@
 		"factoryName": {
 			"value": "adfsanath1"
 		},
+		"AzureDatabricks1_accessToken": {
+			"value": ""
+		},
 		"LS_ADLS_accountKey": {
 			"value": ""
 		},
 		"LS_ADLS2_accountKey": {
+			"value": ""
+		},
+		"inputblobstorage_connectionString": {
 			"value": ""
 		},
 		"LS_ADLS_properties_typeProperties_url": {
