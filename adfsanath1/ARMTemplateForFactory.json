@@ -91,14 +91,32 @@
 							{
 								"referenceName": "ds_1",
 								"type": "DatasetReference",
-								"parameters": {}
+								"parameters": {
+									"source": {
+										"value": "@pipeline().parameters.source",
+										"type": "Expression"
+									},
+									"target": {
+										"value": "@pipeline().parameters.target",
+										"type": "Expression"
+									}
+								}
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "DS_target_1",
 								"type": "DatasetReference",
-								"parameters": {}
+								"parameters": {
+									"source": {
+										"value": "@pipeline().parameters.source",
+										"type": "Expression"
+									},
+									"target": {
+										"value": "@pipeline().parameters.target",
+										"type": "Expression"
+									}
+								}
 							}
 						]
 					}
@@ -106,6 +124,14 @@
 				"policy": {
 					"elapsedTimeMetric": {},
 					"cancelAfter": {}
+				},
+				"parameters": {
+					"source": {
+						"type": "string"
+					},
+					"target": {
+						"type": "string"
+					}
 				},
 				"annotations": []
 			},
@@ -177,12 +203,23 @@
 					"referenceName": "LS_ADLS2",
 					"type": "LinkedServiceReference"
 				},
+				"parameters": {
+					"source": {
+						"type": "string"
+					},
+					"target": {
+						"type": "string"
+					}
+				},
 				"annotations": [],
 				"type": "DelimitedText",
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
-						"fileSystem": "target"
+						"fileSystem": {
+							"value": "@dataset().target",
+							"type": "Expression"
+						}
 					},
 					"columnDelimiter": ",",
 					"escapeChar": "\\",
@@ -229,13 +266,24 @@
 					"referenceName": "LS_ADLS2",
 					"type": "LinkedServiceReference"
 				},
+				"parameters": {
+					"source": {
+						"type": "string"
+					},
+					"target": {
+						"type": "string"
+					}
+				},
 				"annotations": [],
 				"type": "DelimitedText",
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
 						"fileName": "SampleCSVFile_11kb.csv",
-						"fileSystem": "inputsanath"
+						"fileSystem": {
+							"value": "@dataset().source",
+							"type": "Expression"
+						}
 					},
 					"columnDelimiter": ",",
 					"escapeChar": "\\",
