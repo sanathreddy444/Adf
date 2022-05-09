@@ -23,12 +23,6 @@
 		"LS_ADLS2_properties_typeProperties_url": {
 			"value": "https://sanathstorageaccount2.dfs.core.windows.net"
 		},
-		"trigger1_properties_PL_blob_to_sql_parameters_source": {
-			"value": "inputsanath"
-		},
-		"trigger1_properties_PL_blob_to_sql_parameters_target": {
-			"value": "test"
-		},
 		"containerUri": {
 			"value": ""
 		},

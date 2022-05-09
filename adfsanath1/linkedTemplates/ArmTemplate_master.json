@@ -31,14 +31,6 @@
 			"type": "string",
 			"defaultValue": "https://sanathstorageaccount2.dfs.core.windows.net"
 		},
-		"trigger1_properties_PL_blob_to_sql_parameters_source": {
-			"type": "string",
-			"defaultValue": "inputsanath"
-		},
-		"trigger1_properties_PL_blob_to_sql_parameters_target": {
-			"type": "string",
-			"defaultValue": "test"
-		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -83,12 +75,6 @@
 					},
 					"LS_ADLS2_properties_typeProperties_url": {
 						"value": "[parameters('LS_ADLS2_properties_typeProperties_url')]"
-					},
-					"trigger1_properties_PL_blob_to_sql_parameters_source": {
-						"value": "[parameters('trigger1_properties_PL_blob_to_sql_parameters_source')]"
-					},
-					"trigger1_properties_PL_blob_to_sql_parameters_target": {
-						"value": "[parameters('trigger1_properties_PL_blob_to_sql_parameters_target')]"
 					}
 				}
 			},

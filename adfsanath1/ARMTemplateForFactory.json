@@ -30,14 +30,6 @@
 		"LS_ADLS2_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://sanathstorageaccount2.dfs.core.windows.net"
-		},
-		"trigger1_properties_PL_blob_to_sql_parameters_source": {
-			"type": "string",
-			"defaultValue": "inputsanath"
-		},
-		"trigger1_properties_PL_blob_to_sql_parameters_target": {
-			"type": "string",
-			"defaultValue": "test"
 		}
 	},
 	"variables": {
@@ -420,19 +412,8 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"annotations": [],
-				"runtimeState": "Started",
-				"pipelines": [
-					{
-						"pipelineReference": {
-							"referenceName": "PL_blob_to_sql",
-							"type": "PipelineReference"
-						},
-						"parameters": {
-							"source": "[parameters('trigger1_properties_PL_blob_to_sql_parameters_source')]",
-							"target": "[parameters('trigger1_properties_PL_blob_to_sql_parameters_target')]"
-						}
-					}
-				],
+				"runtimeState": "Stopped",
+				"pipelines": [],
 				"type": "ScheduleTrigger",
 				"typeProperties": {
 					"recurrence": {
@@ -443,9 +424,7 @@
 					}
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/PL_blob_to_sql')]"
-			]
+			"dependsOn": []
 		}
 	]
 }
