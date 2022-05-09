@@ -30,6 +30,14 @@
 		"LS_ADLS2_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://sanathstorageaccount2.dfs.core.windows.net"
+		},
+		"trigger1_properties_PL_blob_to_sql_parameters_source": {
+			"type": "string",
+			"defaultValue": "inputsanath"
+		},
+		"trigger1_properties_PL_blob_to_sql_parameters_target": {
+			"type": "string",
+			"defaultValue": "test"
 		}
 	},
 	"variables": {
@@ -404,6 +412,39 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/ds_1')]",
 				"[concat(variables('factoryId'), '/datasets/DS_target_1')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/trigger1')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "PL_blob_to_sql",
+							"type": "PipelineReference"
+						},
+						"parameters": {
+							"source": "[parameters('trigger1_properties_PL_blob_to_sql_parameters_source')]",
+							"target": "[parameters('trigger1_properties_PL_blob_to_sql_parameters_target')]"
+						}
+					}
+				],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Minute",
+						"interval": 2,
+						"startTime": "2022-05-08T02:16:00Z",
+						"timeZone": "UTC"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/PL_blob_to_sql')]"
 			]
 		}
 	]
