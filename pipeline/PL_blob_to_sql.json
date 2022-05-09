@@ -50,17 +50,45 @@
 				"inputs": [
 					{
 						"referenceName": "ds_1",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"source": {
+								"value": "@pipeline().parameters.source",
+								"type": "Expression"
+							},
+							"target": {
+								"value": "@pipeline().parameters.target",
+								"type": "Expression"
+							}
+						}
 					}
 				],
 				"outputs": [
 					{
 						"referenceName": "DS_target_1",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"source": {
+								"value": "@pipeline().parameters.source",
+								"type": "Expression"
+							},
+							"target": {
+								"value": "@pipeline().parameters.target",
+								"type": "Expression"
+							}
+						}
 					}
 				]
 			}
 		],
+		"parameters": {
+			"source": {
+				"type": "string"
+			},
+			"target": {
+				"type": "string"
+			}
+		},
 		"annotations": []
 	}
 }

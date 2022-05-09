@@ -5,12 +5,23 @@
 			"referenceName": "LS_ADLS2",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"source": {
+				"type": "string"
+			},
+			"target": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileSystem": "target"
+				"fileSystem": {
+					"value": "@dataset().target",
+					"type": "Expression"
+				}
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
