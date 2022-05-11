@@ -1,0 +1,22 @@
+{
+	"name": "DestinationDataset_9ez",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_ADLS2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "SQLQuery2.sql",
+				"fileSystem": "inputsanath"
+			},
+			"columnDelimiter": "|",
+			"escapeChar": "\\",
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
