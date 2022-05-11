@@ -1,0 +1,25 @@
+{
+	"name": "trigger2",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "PL_blob_to_sql",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/inputsanath/blobs/",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/44434230-ec7b-42c1-b7ef-606635f02a88/resourceGroups/TestEnvironment/providers/Microsoft.Storage/storageAccounts/sanathstorageaccount2",
+			"events": [
+				"Microsoft.Storage.BlobCreated",
+				"Microsoft.Storage.BlobDeleted"
+			]
+		}
+	}
+}
