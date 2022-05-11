@@ -25,6 +25,9 @@
 		},
 		"LS_ADLS2_properties_typeProperties_url": {
 			"value": "https://sanathstorageaccount2.dfs.core.windows.net"
+		},
+		"trigger2_properties_typeProperties_scope": {
+			"value": "/subscriptions/44434230-ec7b-42c1-b7ef-606635f02a88/resourceGroups/TestEnvironment/providers/Microsoft.Storage/storageAccounts/sanathstorageaccount2"
 		}
 	}
 }

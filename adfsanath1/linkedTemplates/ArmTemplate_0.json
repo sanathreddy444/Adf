@@ -34,6 +34,10 @@
 		"LS_ADLS2_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://sanathstorageaccount2.dfs.core.windows.net"
+		},
+		"trigger2_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/44434230-ec7b-42c1-b7ef-606635f02a88/resourceGroups/TestEnvironment/providers/Microsoft.Storage/storageAccounts/sanathstorageaccount2"
 		}
 	},
 	"variables": {
@@ -888,6 +892,37 @@
 				"[concat(variables('factoryId'), '/datasets/SourceDataset_9ez')]",
 				"[concat(variables('factoryId'), '/datasets/DestinationDataset_9ez')]",
 				"[concat(variables('factoryId'), '/linkedServices/LS_ADLS2')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/trigger2')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Stopped",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "PL_blob_to_sql",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					}
+				],
+				"type": "BlobEventsTrigger",
+				"typeProperties": {
+					"blobPathBeginsWith": "/inputsanath/blobs/",
+					"ignoreEmptyBlobs": true,
+					"scope": "[parameters('trigger2_properties_typeProperties_scope')]",
+					"events": [
+						"Microsoft.Storage.BlobCreated",
+						"Microsoft.Storage.BlobDeleted"
+					]
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/PL_blob_to_sql')]"
 			]
 		}
 	]

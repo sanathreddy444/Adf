@@ -35,6 +35,10 @@
 			"type": "string",
 			"defaultValue": "https://sanathstorageaccount2.dfs.core.windows.net"
 		},
+		"trigger2_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/44434230-ec7b-42c1-b7ef-606635f02a88/resourceGroups/TestEnvironment/providers/Microsoft.Storage/storageAccounts/sanathstorageaccount2"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -82,6 +86,9 @@
 					},
 					"LS_ADLS2_properties_typeProperties_url": {
 						"value": "[parameters('LS_ADLS2_properties_typeProperties_url')]"
+					},
+					"trigger2_properties_typeProperties_scope": {
+						"value": "[parameters('trigger2_properties_typeProperties_scope')]"
 					}
 				}
 			},
